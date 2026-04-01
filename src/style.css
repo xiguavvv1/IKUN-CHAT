@@ -1,0 +1,449 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1f2937;
+  background: #fffdf6;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --bg: #fffdf6;
+  --bg-soft: #fff8e7;
+  --bg-purple: #fff4fb;
+
+  --panel: rgba(255, 255, 255, 0.84);
+  --panel-soft: rgba(255, 249, 235, 0.92);
+  --panel-strong: rgba(255, 243, 214, 0.96);
+
+  --line: rgba(255, 191, 0, 0.18);
+  --line-strong: rgba(168, 85, 247, 0.22);
+
+  --text: #1f2937;
+  --muted: #6b7280;
+
+  --primary: #ffbe0b;
+  --primary-2: #ff9f1c;
+  --purple: #7c3aed;
+  --purple-2: #a855f7;
+  --yellow: #ffbf00;
+
+  --danger: #d9485f;
+
+  --shadow:
+          0 18px 50px rgba(255, 193, 7, 0.10),
+          0 12px 30px rgba(168, 85, 247, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+          radial-gradient(circle at top left, #fff7cc 0%, transparent 32%),
+          radial-gradient(circle at bottom right, #f3d9ff 0%, transparent 28%),
+          linear-gradient(135deg, #fffdf6 0%, #fff8e7 45%, #fff4fb 100%);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.center-screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+}
+
+.auth-panel {
+  width: min(100%, 560px);
+  padding: 36px 32px;
+  background: var(--panel);
+  border: 2px solid rgba(255, 210, 60, 0.28);
+  border-radius: 28px;
+  box-shadow:
+          var(--shadow),
+          0 2px 0 rgba(255, 255, 255, 0.7) inset;
+  backdrop-filter: blur(8px);
+} /* login / register main box */
+
+.home-panel {
+  width: min(100%, 760px);
+} /* home page main box */
+
+.admin-panel {
+  width: min(100%, 680px);
+} /* admin page main box */
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  font-weight: 800;
+} /* small label above title */
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+} /* main page title */
+
+h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+} /* section title */
+
+.subtitle,
+.muted-line,
+.switch-link,
+.list-title,
+.contact-preview,
+.message-author,
+.empty-box,
+.admin-card {
+  color: var(--muted);
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  line-height: 1.7;
+} /* text under main title */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+} /* button area on home page */
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+} /* form layout for login / register */
+
+label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: #374151;
+} /* label above each input */
+
+input {
+  width: 100%;
+  border: 1.5px solid rgba(168, 85, 247, 0.20);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 14px 16px;
+  outline: none;
+  transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+} /* all input boxes */
+
+input::placeholder {
+  color: #9ca3af;
+} /* placeholder text inside inputs */
+
+input:focus {
+  border-color: rgba(255, 190, 11, 0.95);
+  box-shadow:
+          0 0 0 3px rgba(255, 190, 11, 0.16),
+          0 6px 18px rgba(168, 85, 247, 0.08);
+  background: #ffffff;
+} /* input focus effect */
+
+.primary-btn,
+.ghost-btn,
+.text-btn {
+  transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease,
+          background 0.22s ease,
+          border-color 0.22s ease,
+          color 0.22s ease;
+}
+
+.primary-btn,
+.ghost-btn {
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-weight: 800;
+} /* shared button style */
+
+.primary-btn {
+  border: none;
+  background: linear-gradient(135deg, #ffd84d 0%, #ffbe0b 55%, #ff9f1c 100%);
+  color: #3b2a00;
+  box-shadow:
+          0 10px 24px rgba(255, 179, 0, 0.18),
+          0 4px 0 rgba(255, 255, 255, 0.42) inset;
+} /* main action button */
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+          0 16px 30px rgba(255, 179, 0, 0.24),
+          0 4px 0 rgba(255, 255, 255, 0.55) inset;
+} /* hover style for main button */
+
+.primary-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+} /* disabled main button */
+
+.ghost-btn {
+  background: rgba(255, 255, 255, 0.90);
+  color: var(--purple);
+  border: 2px solid rgba(168, 85, 247, 0.25);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.06);
+} /* secondary button */
+
+.ghost-btn:hover {
+  transform: translateY(-2px);
+  background: #fdf4ff;
+  border-color: rgba(168, 85, 247, 0.48);
+  color: #6d28d9;
+} /* hover style for secondary button */
+
+.text-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--purple);
+  font-weight: 700;
+} /* text-only button */
+
+.text-btn:hover {
+  color: #6d28d9;
+  background: transparent;
+} /* hover style for text button */
+
+.danger-btn {
+  color: var(--danger);
+} /* dangerous action button */
+
+.error-text {
+  margin-top: 14px;
+  color: #c24157;
+  font-weight: 600;
+} /* error message text */
+
+.switch-link {
+  margin-top: 18px;
+} /* switch between login and register */
+
+.chat-screen {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background:
+          radial-gradient(circle at top left, rgba(255, 216, 77, 0.25), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.15), transparent 20%),
+          linear-gradient(135deg, #fffdf6 0%, #fff8e7 50%, #fff6fb 100%);
+} /* whole chat page layout */
+
+.sidebar-panel {
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+} /* left sidebar box */
+
+.sidebar-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+} /* top area inside sidebar */
+
+.friend-search {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+} /* friend search area */
+
+.list-title {
+  margin: 22px 0 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #7c3aed;
+  font-weight: 800;
+} /* title above contact list */
+
+.contact-list {
+  display: grid;
+  gap: 10px;
+} /* contact list container */
+
+.contact-card {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 191, 0, 0.10);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text);
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.04);
+} /* each contact item box */
+
+.contact-card:hover,
+.contact-card.active {
+  border-color: rgba(168, 85, 247, 0.30);
+  background: linear-gradient(135deg, rgba(255, 249, 235, 0.98), rgba(253, 244, 255, 0.92));
+} /* active or hovered contact */
+
+.contact-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd84d, #a855f7);
+  font-weight: 700;
+  color: #ffffff;
+} /* contact avatar circle */
+
+.contact-body {
+  min-width: 0;
+} /* text area inside contact card */
+
+.contact-name {
+  font-weight: 700;
+  color: #1f2937;
+} /* contact name text */
+
+.contact-preview {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} /* last message preview */
+
+.chat-panel {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(6px);
+} /* right chat main area */
+
+.chat-header,
+.composer {
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--line);
+} /* shared padding for top and bottom chat areas */
+
+.composer {
+  border-bottom: none;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+} /* message input and send button area */
+
+.messages-panel {
+  padding: 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+} /* message list area */
+
+.empty-box {
+  display: grid;
+  place-items: center;
+  min-height: 140px;
+  border: 1px dashed rgba(168, 85, 247, 0.22);
+  border-radius: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.45);
+} /* empty state box */
+
+.message-row {
+  display: flex;
+} /* one message row */
+
+.message-row.mine {
+  justify-content: flex-end;
+} /* my message row */
+
+.message-row.other {
+  justify-content: flex-start;
+} /* other user's message row */
+
+.message-bubble {
+  max-width: min(70%, 560px);
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 191, 0, 0.10);
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(124, 58, 237, 0.05);
+} /* single message bubble */
+
+.message-row.mine .message-bubble {
+  background: linear-gradient(135deg, #ffd84d 0%, #ffbe0b 55%, #ff9f1c 100%);
+  color: #3b2a00;
+  border: none;
+} /* my message bubble style */
+
+.message-author {
+  margin-bottom: 6px;
+  font-size: 12px;
+} /* sender name above message */
+
+.page-error {
+  padding: 0 28px 24px;
+  margin: 0;
+} /* error message area on page */
+
+.admin-card {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(255, 191, 0, 0.14);
+  display: grid;
+  gap: 10px;
+  box-shadow: 0 10px 24px rgba(168, 85, 247, 0.05);
+} /* small info card in admin page */
